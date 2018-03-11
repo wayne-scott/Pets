@@ -1,0 +1,41 @@
+﻿@page
+@model AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<br />
+<h1>This web site is my implementation of the 'Pets' programming challenge.</h1>
+
+<h2>Architecture</h2>
+
+<p>This implementation has been written using <a href="https://github.com/aspnet/home">ASP.NET Core</a> with <a href="https://github.com/dotnet/core">.NET Core 2.0</a>. The deployment environment for this can be either Windows Server running IIS or Azure App Service.</p>
+<p>The solution will open and run with Visual Studio 2017 providing you have installed the 'ASP.NET and web development' workload during installation. If not you can update your installation via the Tools -> Get Tools and Features... menu item in Visual Studio.</p>
+<p>If you don't have Visual Studio 2017 there is a <a href="https://www.visualstudio.com/downloads/">free community edition</a>.</p>
+
+<h2>Requirement Assumptions</h2>
+
+<p>There are a some assumptions I've made regarding the requirements which are outlined below:</p>
+
+<ul>
+    <li>The home page of the web site will display "a list of all the cats in alphabetical order under a heading of the gender of their owner". As this is the main requirement I assumed that it should be instantly visible.</li>
+    <li>If an error occurs when retrieving the JSON data I've assumed that this will cause a fatal error which will result in the custom error page being displayed.</li>
+    <li>If the JSON returned has missing mandatory fields then I've assumed this is a fatal error which will result in the custom error page being displayed.</li>
+</ul>
+
+<h2>Design Decisions</h2>
+
+<h3>Additional 'Owner' Pages</h3>
+
+<p>Although it wasn't a requirement I've added an additional page to display a list of owners which links to a page which will display an Owner and their pets details.</p>
+<p>I did this to show how the shared Razor Pages can be reused, highlighting why I had separated the functionality.</p>
+
+<h3>Exception Logging</h3>
+
+<p>With brevity in mind I decided not to add exception logging to an external source like Event Viewer, Sumo Logic, etc. Instead I performed the ultimate sin of allowing exception details to be displayed on the Error page.</p>
+
+<p>This is not something I would ever do in any other situation but I wanted to make the errors being raised visible without the overhead of storing, retrieving and displaying them.</p>
+
+<h3>Caching received JSON</h3>
+
+<p>I've added caching for the received JSON objects, however this isn't a fully considered framework. It was added due to the licensing restrictions on the <a href="https://www.newtonsoft.com/jsonschema">JSON.NET Schema</a> framework which only allows a small number of validations per hour.</p>

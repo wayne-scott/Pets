@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="jumbotron">
+    <h1>Cats by Owners @Model.GroupOfPets.GroupedBy</h1>
+    <p class="lead"></p>
+</div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        @if (Model.GroupOfPets.HasGroups)
+        {
+            foreach (var pets in Model.GroupOfPets.Collection)
+            {
+                Html.RenderPartial("Shared/Pets", pets);
+            }
+        }
+        else
+        {
+            <p>No owners have cats?</p>
+        }
+    </div>
+    <div class="col-md-1"></div>
+</div>

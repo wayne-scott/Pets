@@ -1,0 +1,30 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<br>
+
+<div class="row">
+    <div class="col-md-6">
+        <img class="img-responsive img-rounded" src="~/images/pets1.jpg" />
+    </div>
+    <div class="col-md-6">
+        <h1 class="text-danger">Error.</h1>
+        <h2 class="text-danger">An error occurred while processing your request.</h2>
+    </div>
+</div>
+<br/>
+<div class="row">
+    @if (Model.RouteWhereExceptionOccurredExists)
+    {
+        <label asp-for="@Model.RouteWhereExceptionOccurred"></label>
+        <p>@Model.RouteWhereExceptionOccurred</p>
+    }
+    @if (Model.ExceptionMessageExists)
+    {
+        <label asp-for="@Model.ExceptionMessage"></label>
+        <p>@Model.ExceptionMessage</p>
+    }
+</div>

@@ -1,0 +1,33 @@
+﻿@page "{ownerName?}"
+@model Owner.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (Model.Owner != null)
+{
+    Html.RenderPartial("Shared/Owner", Model.Owner);
+}
+else if (Model.Owners != null)
+{
+    <h1>Owners</h1>
+    foreach (var owner in Model.Owners)
+    {
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="list-group">
+                    <a asp-route-ownerName="@owner.Name" class="list-group-item">
+                        <span class="h4">@owner.Name</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    }
+}
+else
+{
+    <h1>Owners</h1>
+    <p>@Model.Message</p>
+}

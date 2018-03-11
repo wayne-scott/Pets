@@ -1,0 +1,22 @@
+﻿@model Shared.Pets
+
+<div class="list-group">
+    <div class="list-group-item active">@Model.Title</div>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in Model.Collection)
+            {
+                <tr>
+                    <td>@pet.Name</td>
+                    <td>@pet.Type</td>
+                </tr>
+            }            
+        </tbody>
+    </table>
+</div>

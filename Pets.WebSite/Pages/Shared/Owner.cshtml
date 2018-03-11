@@ -1,0 +1,27 @@
+﻿@model Shared.Owner
+
+<h1>@Model.Name</h1>
+
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <label asp-for="@Model.Age" class="col-md-2"></label>
+    <div class="col-md-3">
+        <input asp-for="@Model.Age" class="form-control-static" readonly />
+    </div>
+    <label asp-for="@Model.Gender" class="col-md-2"></label>
+    <div class="col-md-3">
+        <input asp-for="@Model.Gender" class="form-control-static" readonly />
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        @{
+            Html.RenderPartial("Shared/Pets", Model.Pets);
+        }
+    </div>
+    <div class="col-md-1"></div>
+</div>
