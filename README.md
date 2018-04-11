@@ -8,9 +8,13 @@ A live version of this web site can be found [here](http://ws-pets.azurewebsites
 
 This implementation has been written using [ASP.NET Core](https://github.com/aspnet/home) with [.NET Core 2.0](https://github.com/dotnet/core).  The deployment environment for this can be either Windows Server running IIS or Azure App Service.
 
+### Development Environment
+
 The solution will open and run with Visual Studio 2017 providing you have installed the 'ASP.NET and web development' workload during installation.  If not you can update your installation via the Tools -> Get Tools and Features... menu item in Visual Studio.
 
 If you don't have Visual Studio 2017 there is a [free community edition](https://www.visualstudio.com/downloads/).
+
+As with older versions of Visual Studio any missing NuGet packages will be restored when the solution is built.  However in addition to this any missing [Bower](https://bower.io/) packages should be also be restored.  If for any reason this doesn't happen you can force a restore by right clicking on the 'Bower' folder under 'Dependencies' and selecting 'Restore Packages'.
 
 ## Requirement Assumptions
 
